@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
+// Tema 2 - Calculo de Pib Percapita e Densidade populacional
 
 int main() {
     char estado1, estado2;
