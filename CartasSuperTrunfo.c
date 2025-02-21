@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 2 - Calculo de Pib Percapita e Densidade populacional
+// Tema 3 - Desafio: nível mestre
 
 int main() {
     char estado1, estado2;
@@ -13,6 +13,8 @@ int main() {
     int pontosTuristicos1, pontosTuristicos2;
     float densidadePopulacional1, densidadePopulacional2;
     float pibPerCapita1, pibPerCapita2;
+    float superPoder1, superPoder2;
+
 
     // Entrada dos dados
     printf("Digite a letra do estado (A-H): ");
@@ -42,6 +44,8 @@ int main() {
     // Calcular a densidade populacional
     densidadePopulacional1 = (area1 > 0) ? (float)populacao1 / area1 : 0;
     pibPerCapita1 = (populacao1 > 0) ? (pib1 * 1000000000) / populacao1 : 0;
+    superPoder1 = populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + (densidadePopulacional1 > 0 ? 1 / densidadePopulacional1 : 0);
+
 
 
 
@@ -72,6 +76,13 @@ int main() {
     // Calcular a densidade populacional
     densidadePopulacional2 = (area2 > 0) ? (float)populacao2 / area2 : 0;
     pibPerCapita2 = (populacao2 > 0) ? (pib2 * 1000000000) / populacao2 : 0;
+    superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + (densidadePopulacional2 > 0 ? 1 / densidadePopulacional2 : 0);
+
+    //cidade que venceu
+
+    int cidade1venceu = (superPoder1) > (superPoder2);
+    int cidade2venceu = (superPoder2) > (superPoder1);
+    int empate = (superPoder1 == superPoder2);
 
 
     // Saída dos dados cadastrados
@@ -85,6 +96,7 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontosTuristicos1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional1);
     printf("PIB per Capita: %.2f\n", pibPerCapita1);
+    printf("Tamanho do Poder: %.3f\n", superPoder1);
 
     printf("\n\nCidade 2\n");
     printf("Código: %s\n", codigo2);
@@ -95,6 +107,13 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontosTuristicos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
     printf("PIB per Capita: %.2f\n", pibPerCapita2);
+    printf("Tamanho do Poder: %.3f\n", superPoder2);
+
+    printf("\n\nQUEM GANHOU?\n");
+    printf("Cidade 1 ganhou: %d\n", cidade1venceu);
+    printf("Cidade 2 ganhou: %d\n", cidade2venceu);
+    printf("Empate: %d\n", empate);
 
 
-   return 0;
+    return 0;
+}
